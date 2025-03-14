@@ -84,3 +84,4 @@ jobs:
 
       - name: 🔍 Run OWASP ZAP Security Scan
         run: ./zaproxy/zap.sh -cmd -quickurl https://vit-test.vercel.app/ -quickprogress
+
