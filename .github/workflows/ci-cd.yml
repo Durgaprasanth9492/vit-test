@@ -69,7 +69,9 @@ jobs:
 
       - name: 🚀 Deploy to Vercel
         run: npx vercel --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
-      
-      - name: 🔍 Run OWASP ZAP Security Scan
-        run: zap-baseline.py -t https://vit-test.vercel.app/
 
+      - name: 🔍 Install OWASP ZAP
+        run: sudo apt update && sudo apt install zaproxy -y
+
+      - name: 🔍 Run OWASP ZAP Security Scan
+        run: /usr/share/zaproxy/zap-baseline.py -t https://vit-test.vercel.app/
