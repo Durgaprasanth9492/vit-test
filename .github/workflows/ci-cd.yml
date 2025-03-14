@@ -72,9 +72,9 @@ jobs:
       
       - name: 🔍 Download & Extract OWASP ZAP
         run: |
-          wget -q https://github.com/zaproxy/zaproxy/releases/download/v2.14.0/ZAP_2.14.0_Linux.tar.gz
+          wget -O ZAP_Linux.tar.gz https://github.com/zaproxy/zaproxy/releases/download/v${{ env.ZAP_VERSION }}/ZAP_${{ env.ZAP_VERSION }}_Linux.tar.gz
           tar -xzf ZAP_2.14.0_Linux.tar.gz
-          mv ZAP_2.14.0 zaproxy
+          mv ZAP_${{ env.ZAP_VERSION }} zaproxy
 
       - name: 🔍 Run OWASP ZAP Security Scan
         run: /usr/share/zaproxy/zap-baseline.py -t https://vit-test.vercel.app/
